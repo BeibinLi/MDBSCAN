@@ -1,28 +1,26 @@
 CC = g++
-CFLAGS  = -c -g -std=c++11 -pedantic -pedantic-errors -Wall -Wextra -Wconversion -Wno-unused-parameter -w
+CFLAGS  = -g -std=c++11 -pedantic -pedantic-errors -Wall -Wextra -Wconversion -Wno-unused-parameter -w
 
-all: Point.o MDBSCAN.o main.o
-	$(CC) -g Point.o MDBSCAN.o main.o -o prog
+prog: main.cpp MDBSCAN.o Point.o
+	$(CC) $(CFLAGS) main.cpp Point.o MDBSCAN.o -o prog
 
 Point.o: Point.h Point.cpp
-	$(CC) $(CFLAGS)  Point.cpp
+	$(CC) $(CFLAGS) -c Point.cpp
 
-MDBSCAN.o: MDBSCAN.h MDBSCAN.cpp Point.o
-	$(CC) $(CFLAGS)  MDBSCAN.cpp
+MDBSCAN.o: MDBSCAN.h MDBSCAN.cpp
+	$(CC) $(CFLAGS) -c MDBSCAN.cpp
 
-main.o: main.cpp Point.o MDBSCAN.o
-	$(CC) $(CFLAGS)  main.cpp Point.o MDBSCAN.o
 
-test1: all
+test1: prog
 	./prog < 1.in
 
-test2: all
+test2: prog
 	./prog < 2.in
 
-test3: all
+test3: prog
 	./prog < 3.in
 
 clean:
-	rm -rf *.o *.out *.exe
+	rm -rf *.o *.out *.exe prog
 
 
