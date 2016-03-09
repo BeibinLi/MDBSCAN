@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS  = -c -g -std=c++11 -pedantic -pedantic-errors -Wall -Wextra -Wconversion -Wno-unused-parameter
+CFLAGS  = -c -g -std=c++11 -pedantic -pedantic-errors -Wall -Wextra -Wconversion -Wno-unused-parameter -w
 
 all: Point.o MDBSCAN.o main.o
 	$(CC) -g Point.o MDBSCAN.o main.o -o prog
@@ -18,6 +18,9 @@ test1: all
 
 test2: all
 	./prog < 2.in
+
+test3: all
+	./prog < 3.in
 
 clean:
 	rm -rf *.o *.out *.exe

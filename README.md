@@ -33,8 +33,9 @@ to noise and intuitive fixational structure, and  from velocity-based algorithms
 such as the ability to deal appropriately with smooth pursuit (SP) movements. 
 
 ## Usage
-1. Use ```make all``` to compile the C++ code
-2. Use ```make test1``` or ```make test2``` to run sample inputs.
+1. Required tools: g++ (at least version 4.8), make. Windows users can use Visual Studio to import these C++ files.
+1. Use terminal command ```make all``` to compile the C++ code
+2. Use terminal command ```make test1```, ```make test2```, or `make test3`to run sample inputs.
 3. Use [this m file](visualize_results.m) to visualize fixations in the dataset. 
 For instance, run ```visualize_results('1.out')``` in Matlab terminal to get visualization.
 
